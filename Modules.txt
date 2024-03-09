@@ -1,0 +1,51 @@
+Spring is an Application development application
+By Using Spring framework we can develop end to end appliction
+Spring is versatile framework, Spring can be integrated with anyother program framework which is there o market
+Spring is Non Invasive framework, Spring wil not force the programmer to extend or implement any framework related classes or interfaces
+Spring is lightweight framework.It is developed in module fashion
+
+There are several modules available in Spring framework
+Spring Core
+Spring Context
+Spring SOP
+Spring DAO
+Spring WebMVC
+Spring ORM
+ All these modules are indipendent , thats whywe call it as loosely coupled framework
+ 
+Spring Core is base Module for Spring Framework. This module providing the fundamental concepts of Spring they are IOC and DI
+IOC: Inversion of Control
+DI Dependency Injection
+
+Spring Context Module will take care of Configuration required for Application
+
+Spring AOP module is used to seperate business logic and secondry logic in our application.
+AOP stands for Aspect Oriented Programming
+
+Spring DAO / Spring JDBC module is used to develop Persistence layer
+Using JDBC also we can comunicate with DB, then why we need Spring DAO
+problems: load the driver
+get the connection
+create the statement 
+execute teh statement/Query
+close the connection
+
+we need to write this all the time and using JDBC we will write lot of boiler plate code, 
+to avoid this Spring DJDBC came into picture
+Internally Spring JDBC will talk ti JDBC API and JDBC will talk to Databse
+Advantages:
+No need to load the Driver
+No need to get the Connection
+No Need to cretae the Statement
+No need to Close the Connection
+We just need to Execute the Query
+
+Spring Web MVC Module is Used to develop web application
+Spring Web MVC is developed on top of the Servlets , it's used to simplify web application development
+
+Spring ORM module is used to develop persistance layer
+
+ORM-
+It is used to represent tje data in the form of Objects
+
+in JDBC we represent the Data in the form of text

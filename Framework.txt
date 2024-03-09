@@ -1,0 +1,30 @@
+Frameworks:
+What is Frmework: 
+FRame work is a semideveloped software, which provides the some common logics which are required for several application develpment.
+How can we use frameworks:
+it's not like any mobile app', frmeworks we can use as  a jar files and these jar files we have /class files
+
+we need to add these .jar files to build path. so that we can use the common logic in our appliction.
+
+
+Types of Frame works:
+Frameworks are 3 categeries 
+ORM Frame work:
+These frameworks are used to develope Persistance layer.
+Ex: Hibernate
+Web Framework:
+These frameworks are used to develop Web Components like Controllers, listeners etc
+
+Application Framework:
+Ths framework will provide the all the component support to the completete application.
+It ill support for Web component as well as Persistance layer.
+
+As discussed above using only hibernate we can't complete one applicaion, we can complee only Persistance layer 
+Similarly using struts we can complete only weblayer, we can't complete the one application.
+But using Sprng we can complete the Application developement that why we call it as Application developement layer.
+
+Using J2EE also we can coplte the application development, does it mean is it replacing J2EE, ?
+No, Spring is internally using the J2EE, 
+Spring providing the abstaction layer for J2EE, 
+
+Here our application classes will talk to Spring classe and internally Spring classes will talk to J2EE
