@@ -1,0 +1,71 @@
+Spring IoC Container:
+	- The Spring IoC container is the core of the Spring Framework
+	as it creates the objects, configures them,and manages their complete life cycle from creation to destruction.
+	
+	The Spring container uses dependency injection (DI) to manage the beans/components that make up an application
+
+Dependency Injection:
+	-- The dependency injection is a pattern used to create instances of objects
+	that other objects rely on without knowing at compile time which class will be used to inject them at runtime.
+	IoC relies on dependency injection 
+	because a mechanism is needed in order to activate the components providing the specific functionality.
+
+	Dependency Injection aims to reduce tight coupling between different parts of a software system, 
+    such as classes or modules.
+    When one component relies on another, it “depends” on it. 
+    Dependencies are “injected” into a component, 
+Spring Container needs two things
+ 1) Beans / Java Classes which we need objects to be created 
+ 2) XML Configuration - to tell the container what the dependencies are for a particula object.
+ 
+ Then our application can get these objects from the Container by requesting from them,
+ 
+ There are two interfaces are at heart of the Spring container
+ 
+ Bean Factory.
+ 
+ Application Context.
+ 
+ BeanFactory – provides the configuration framework and basic functionality capable of managing any type of object.
+ApplicationContext – extends BeanFactory and adds more enterprise-specific functionality 
+	such as integration with Spring AOP, message resource handling, and event publication.
+ 
+The ApplicationContext interface represents the Spring IoC container ,
+It is responsible for instantiating, configuring, and assembling the beans by reading configuration metadata. 
+The configuration metadata is represented in XML (legacy), Java annotations, or Java code
+
+Application Context is an interface and we can't create an Object for Application Context
+
+Implementations of this interfaces are:
+
+ClassPathXmlApplicationContext 
+AnnotationConfigApplicationContext 
+FileSystemXmlApplicationContext 
+
+ClassPathXmlApplicationContext will search for the XML configuration on the Java ClassPath.
+FileSystemXmlApplicationContext will search for the XML configuration file in the FileSystem instead of the Java Class path.
+AnnotationConfigApplicationContext - is used when we configure the beans using Annotations.
+
+ 
+Types of Dependency Injection: 
+class Employee 
+ int id,
+ String name,
+ Address address.
+ 
+ 
+ Class Address 
+	h.no
+	street,
+	city,
+	state
+
+We can do this in two ways:
+	Setter Injection value as an element/value as an attribure
+	Construtor Injection
+
+Types of Data :
+
+Primitive Type dependencies
+Collection Type dependencies -- List, Set, Map, Properties
+Refernce Type dependencies
