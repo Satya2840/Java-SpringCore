@@ -10,7 +10,12 @@
 <value>JNTU</value>
 </property>
 <property name="departmentNames">
+<list>
 <value>MCA</value>
+<value>IT</value>
+<value>CSE</value>
+<value>EEE</value>
+</list>
 </property>
 </bean>
 
