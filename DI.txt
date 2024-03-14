@@ -1,0 +1,34 @@
+Dependency Injection is the main functionality provided by Spring IOC(Inversion of Control). The Spring-Core module is responsible for injecting dependencies through either Constructor or Setter methods. 
+The design principle of Inversion of Control emphasizes keeping the Java classes independent of each other and the container frees them from object creation and maintenance. These classes, managed by Spring
+
+Ex: Suppose class A needs the object of class B to instantiate or operate a method, then class A is said to be dependent on class B. Now though it might appear okay to depend a module on the other but, in the real world, this could lead to a lot of problems. Hence such dependencies need to be avoided. Spring IOC resolves such dependencies with Dependency Injection, which makes the code easier to test and reuse. Loose coupling between classes can be possible by defining interfaces for common functionality and the injector will instantiate the objects of required implementation. The task of instantiating objects is done by the container according to the configurations specified by the developer.
+
+Types of Dependency Injections:
+there are two types of dependency injection
+1) Setter Injection
+2) Constructor Injection
+
+In this, the Dependency Injections will be injected with the help of setter and/or getter methods
+Now to set the Dependency Injections as Setter Dependency Injections in the bean, it is done through the bean-configuration file For this, the property to be set with the Setter Dependency Injection is declared under the <property> tag in the bean-config file
+
+Ex: We have Employee class and we want to do the setter injection for properties of the Employee class 
+
+class Employee {
+ private int empId;
+ private String name;
+
+ //setters and getters;
+
+}
+
+beans.xml:
+
+<bean name ="emp" class ="fully qualified name of the bean(Employee)">
+<property name ="empId">
+<value>1</value>
+</property>
+<property name ="name">
+<value>Satyareddy</value>
+</property>
+
+

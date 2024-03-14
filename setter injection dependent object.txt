@@ -1,0 +1,54 @@
+Setter Injection with Dependent Object:
+
+If there exists a relationship between the classes of our spring application, then we create the instance of the dependent object also called the contained object. After creating the instance of the dependent object we pass it as an argument of the main class container. Example: If an employee has an address, then the instance of the Address class is the dependent object and will be contained in the Employee class.
+
+
+class Employee {
+ 
+    
+    private String name;
+    private String employeeID;
+    private String department;
+    private Address address;
+
+    // setters and getters
+
+public void display()
+    {
+        // Print statements
+        System.out.println("Name: " + getName());
+        System.out.println("Employee ID: "
+                           + getEmployeeID());
+        System.out.println("Department: "
+                           + getDepartment());
+        System.out.println("Address: "
+                           + getAddress().toString());
+    }
+    }
+
+
+class Address {
+    private String houseNo;
+    private String pincode;
+    private String state;
+    private String country;
+
+    // setters and getters
+
+
+}
+
+beans.xml"
+
+    <bean id="address" class="Address">  
+        <property name="houseNo" value="192"></property>  
+        <property name="pincode" value="500072"</property>
+        <property name="state" value="Delhi"></property>  
+        <property name="country" value="India"></property>  
+    </bean> 
+<bean id="employee" class="Employee">  
+        <property name="name" value="Satya"></property>  
+        <property name="employeeID" value="1001"></property>  
+        <property name="department" value="Software development"></property> 
+        <property name="address" ref="address"></property>  
+    </bean> 

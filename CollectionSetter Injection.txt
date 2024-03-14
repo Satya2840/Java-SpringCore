@@ -1,0 +1,35 @@
+public class College {
+	
+	private String name;
+	private List<String> departments;
+	}
+
+xml"
+<bean name ="college" class ="com.satya.spring.core.list.College">
+	<property name="name" value="JNTU"></property>
+	    
+		<property name="departments">
+		<list>
+		<value>CSE</value>
+		<value>EEE</value>
+		<value>ECE</value>
+		<value>IT</value>
+		<value>null</value>
+		</list>
+		</property>
+
+Set:public class Cars {
+	private String dealer;
+	private Set<String> models;}
+<bean name ="car" class ="com.satya.spring.core.set.Cars">
+	<property name="dealer" value="TATA"></property>
+	    
+		<property name="models">
+		<set>
+		<value>CSE</value>
+		<value>EEE</value>
+		<value>ECE</value>
+		<value>IT</value>
+		</set>
+		</property>
+		
