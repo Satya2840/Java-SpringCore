@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<bean name="address1" class="com.satya.setter.collectionsInjection.reference.Address">
+	<property name="hno" value="123"></property>
+	<property name="street" value="kphb"></property>
+	<property name="city" value="hyderabad"></property>
+	</bean>
+	<bean name ="emp" class ="com.satya.setter.collectionsInjection.reference.Employee">
+	<property name="empId" value="1"></property>
+	<property name="name" value="abc"></property>
+	<property name="address" ref="address1"></property>
+	
+	</bean>
+	
+</beans>
