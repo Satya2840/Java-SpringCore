@@ -1,0 +1,33 @@
+Q) Difference between Setter and Constructor Injection:
+A) 1) setter:
+Dependencies are injected using setter methods.
+1) constructor:
+Dependencies are injected using constructor arguments.
+2) setter:
+Partial dependency injection is supported; we can ignore any property for injection. We can inject properties only if necessary.
+2) constructor:
+Partial dependency injection is not supported; we cannot ignore the property if it is there in constructor parameter. All the parameters of constructor must be injected. Otherwise an overloaded constructor must be created with those properties need to be injected.
+3) setter:
+If we use constructor and setter injection both, setter injection will be used because setter methods will be executed after constructor.
+3) constructor:
+If we use constructor and setter injection, constructor injection will not be used.
+4) setter:
+Default constructor is mandatory.
+4) constructor:
+Default constructor is not mandatory.
+5) setter:
+Less secure than constructor inject, because while using setter injection, you can override certain dependency by sub-classes overridden setter methods.
+5) constructor:
+More secure than setter inject as dependency cannot be overridden, sub-classes still has to invoke super class constructors
+
+
+Q) If setter and constructor injection both are used, then which values will be used and why?
+A) Since methods executes after constructor execution, the values assigned through setter injection will be used as final values.
+
+Q) When to use Setter Injection and when to use Constructor Injection?
+A) If there is only one property in a spring bean class then use constructor injection as constructor executes before methods constructor injection will be faster than setter injection. 
+
+If spring bean class is having more than one property then it is better to use setter injection because it reduces burden on the programmer. Setter injection reduces burden on the programmer because programmer need not to worry about index, type of parameters as in the case of constructor injection. 
+
+It is not mandatory that all properties must be configured for injection. Properties can be left with their default values. 
+
