@@ -11,12 +11,8 @@ public class App
 {
     public static void main( String[] args )
     {
-		/*
-		 * ApplicationContext context = new ClassPathXmlApplicationContext(
-		 * "com/satya/constructorInjection/constructorProperties/context.xml"); Employee
-		 * emp = (Employee) context.getBean("emp"); emp.display();
-		 */
-    	Child c = new Child();
-    	c.m2();
+		ApplicationContext context = new ClassPathXmlApplicationContext("com/satya/constructorInjection/constructorProperties/context.xml"); 
+		  Employee emp = (Employee) context.getBean("emp");
+		  emp.display();
     } 
 }
