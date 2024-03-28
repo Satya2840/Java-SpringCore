@@ -1,0 +1,50 @@
+Spring provides a way to automatically detect the relationships between various beans. This can be done by declaring all the bean dependencies in Spring configuration file. So, Spring is able to utilize the BeanFactory to know the dependencies across all the used beans.
+
+The XML configuration based autowiring functionality has five modes – no, byName, byType, constructor, and autodetect. The default mode is no
+
+
+Autowiring modes:
+==================
+
+1) no: It’s the default autowiring mode. It means no autowiring.
+2) byName: The byName mode injects the object dependency according to name of the bean. In such case, property name and bean name should be same. It internally calls setter method.
+3) byType: The byType mode injects the object dependency according to type. So it can have different property name and bean name. It internally calls setter method.
+4) constructor: The constructor mode injects the dependency by calling the constructor of the class. It calls the constructor having large number of parameters.
+5) autodetect: In this mode, Spring first tries to autowire by constructor. If this fails, it tries to autowire by using byType. deprecated from Spring 3.0 onwards
+
+1. Autowiring ‘no’:
+
+This is a default autowiring mode. It means no autowiring.
+
+<bean id="student" class="com.satya.autowiring.Student">
+  <property name="name" value="Satya" />
+</bean>
+<bean id="trainer" class="com.satya.autowiring.Trainer"></bean>
+
+2. Autowiring ‘byName’:
+
+This option enables autowire based on bean names. Spring looks up the configuration file for a matching bean name. If found, this bean is injected in the property.if not, it will raise an exception
+
+<bean id="student" class="com.satya.autowiring.Student">
+  <property name="name" value="Satya" />
+</bean>
+<bean id="trainer" class="com.satya.autowiring.Trainer" autowire="byName"></bean>
+ 
+3. Autowiring ‘byType’:
+
+This option enables the autowire based on bean type. It searches property’s class type in configuration file. It injects the property, if such bean is found, otherwise an error is raised.
+
+<bean id="student" class="com.satya.autowiring.Student">
+  <property name="name" value="Satya" />
+</bean>
+<bean id="trainer" class="com.satya.autowiring.Trainer" autowire="byType"></bean>
+
+
+4. Autowiring ‘constructor’:
+
+Autowiring by constructor is similar to byType but it applies to constructor arguments. It will look for the class type of constructor arguments, and then do an autowire byType on all constructor arguments. If exactly one bean of the constructor argument type is not present in the container, an error will be raised.
+<bean id="student" class="com.satya.autowiring.Student">
+  <property name="name" value="Satya" />
+</bean>
+<bean id="trainer" class="com.satya.autowiring.Trainer" autowire="constructor"></bean>
+
