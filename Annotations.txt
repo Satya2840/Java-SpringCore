@@ -1,0 +1,119 @@
+Annotations:
+============
+Annotations we will use to replace the xml configuration.
+
+1) @Autowired
+==============
+In Spring, you can use @Autowired annotation to auto wire bean on the setter method, constructor or a field. Moreover, it can autowire property in a particular bean. We must first enable the annotation using below configuration in configuration file
+
+If you are using Java based configuration, you can enable annotation-driven injection by using below spring configuration:
+
+@Configuration
+@ComponentScan(basePackages = "com.spring.core.annotations")
+public class ApplicationConfig {
+
+}
+
+As an alternative, we can use below XML based configuration in Spring:
+
+<context:annotation-config />
+
+if we are not using the configuration java class and if we want to do the configuration from XML and if we want spring needs to create the bean then will annotate with @component, then we need to inform the Spring like we are not creating the bean in xml and we have the class which is annotated with @Component and then spring will create the beans for that class and it will register with the IOC Container.
+here we need to use the below tag :
+<context:component-scan base-package="com.spring.core.annotations"></context:component-scan>
+
+
+2) @Componet
+=============
+if we annotate any class with @Component then then spring will under that it need to create the bean for that class.
+
+@Component
+class Trainer{
+
+}
+
+so here it's going to create the bean for Trainer class and it will register with IOC Container.
+here the bean name is same as the class name , starting with the small letter.
+here bean name is like: trainer.
+then we will get this bean by calling the getBean("trainer")
+
+3) @Configuration
+=================
+if we are replacing the XML configurtion with the Javabased Configuration then we need to annotated that java class with @Configuration then spring will understand that it's a configuration class and it will search for the bean in this configuration file.
+
+@Configuration
+public class ApplicationConfig {
+
+
+}
+
+
+4) @ComponentScan:
+===============
+@ComponentScan(basePackages = "com.spring.core.annotations")
+
+we use the @ComponentScan annotation along with the @Configuration annotation to specify the packages that we want to be scanned. @ComponentScan without arguments tells Spring to scan the current package and all of its sub-packages.
+
+@Configuration
+@ComponentScan(basePackages = "com.spring.core.annotations")
+public class ApplicationConfig {
+	
+	
+}
+
+5) @Primary & @Qualifier
+========
+@Primary indicates that a particular bean should be given preference when multiple beans are candidates to be autowired to a single-valued dependency. If exactly one primary bean exists among the candidates, it becomes the autowired value.
+
+Ex:
+When we have an interface called Course and if it has more than one implementatiosn like Fullstack and Frameworks.
+when we are annotating the Course with @Autowired in side the other class called Trainer 
+we will get the bean ambiguity , to resolve this we need to annotated the one implementation class with @Primary , so spring will do the injection with @Primary annotated class without giving any error.
+If we want to inject any other implemettion class then we need to use the @Qualifier and we need to pass the bean name.
+
+@Qualifier("beanName)
+
+ex:
+@Autowired
+	@Qualifier("frameworks")
+	private Course course;
+	
+
+@Component
+@Primary
+public class FullStack implements Course {
+	
+	@Override
+	public void course() {
+		System.out.println("entrolled for FullStack");
+	}
+}
+@Component
+public class Frameworks implements Course {
+
+	@Override
+	public void course() {
+		System.out.println("enrolled for Frameworks");
+
+	}
+
+}
+
+6) @Value:
+=========
+The @Value annotation is mostly used to get value for specific property keys from the properties file. We can read spring environment variables as well as system variables using @Value annotation.
+
+Ex:
+@Value("${no}")
+	private int no;
+	@Value("${name}")
+	private String name;
+
+studentDetails.properties:
+no=2
+name=abc
+
+Here we need to pass the properties file name by using the @propertySource Annotation.
+@PropertySource("com/spring/core/annotations/studentDetails.properties")
+
+ 
